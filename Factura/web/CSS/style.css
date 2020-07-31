@@ -1,0 +1,79 @@
+/*!
+ * Bootstrap v4.3.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+
+
+body {
+  margin: 0;
+  text-align: left;
+}
+
+.rounded-circle {
+  border-radius: 70% !important; }
+
+.d-flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important; }
+
+.p-4 {
+  padding: 1.5rem !important; }
+  
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  
+  font-weight: normal;
+  background: #fafafa;
+  color: gray; }
+
+.img {
+    height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+.iframe {
+    min-height: 80vh;
+    min-width: 172vh;
+}
+#boton{
+    background:  #D4DADA  ;
+    width: 250px;
+    color: white;
+    text-align: left;
+}
+#sidebar {
+  min-width: 300px;
+  max-width: 300px;
+  background: #1d1919;
+}
+  #sidebar.active {
+    margin-left: -300px; }
+  #sidebar .logo {
+    display: block;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto; }
+
+  #sidebar ul li {
+    font-size: 25px; }
+    #sidebar ul li a {
+      padding: 20px 0;
+      display: block;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    #sidebar ul li.active > a {
+      color: #f8b739; }
+a[data-toggle="collapse"] {
+  position: relative; }
+
+
+
+#content {
+  min-height: 100vh;
+}
+
