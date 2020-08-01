@@ -13,18 +13,20 @@
         <link rel="stylesheet" href="../CSS/styloCrear.css">
     </head>
     <body>
-     <div class="wrapper">
-  <form class="login">
+     <div class="wrapper">  
+         <form action="../RegistrarCliente" method="POST" class="login">
     <p class="title">Log in</p>
-    <input type="text" placeholder="Username" autofocus/>
+    <input name="cedula" type="text" placeholder="Cedula" autofocus/>
     <i class="fa fa-user"></i>
-    <input type="password" placeholder="Password" />
+    <input name="nombre" type="text" placeholder="Nombre" />
+    <input name="apellido" type="text" placeholder="Apellido" autofocus/>
+    <i class="fa fa-user"></i>
+    <input name="edad"   type="text" placeholder="Edad" />
     <i class="fa fa-key"></i>
-    <a href="#">Forgot your password?</a>
-    <button>
+    <input type="submit" class="spinner" value="Regisrar">
       <i class="spinner"></i>
       <span class="state">Log in</span>
-    </button>
+      
   </form>
   <footer><a target="blank" href="http://boudra.me/">boudra.me</a></footer>
   </p>

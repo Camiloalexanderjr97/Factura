@@ -7,23 +7,23 @@ const app = new Vue({
         ],
         nuevaFruta: ''
     },
-    
+
     methods: {
 
-        crear(){
-            var url="JSP/Crear.jsp";
-            
-            document.getElementById("pag").src=url;
+        crear() {
+            var url = "JSP/Crear.jsp";
+
+            document.getElementById("pag").src = url;
         },
-        modificar(){
-            var url="JSP/Modificar.jsp";
-            
-            document.getElementById("pag").src=url;
+        modificar() {
+            var url = "JSP/Modificar.jsp";
+
+            document.getElementById("pag").src = url;
         },
-        eliminar(){
-            var url="JSP/Eliminar.jsp";
-            
-            document.getElementById("pag").src=url;
+        eliminar() {
+            var url = "JSP/Eliminar.jsp";
+
+            document.getElementById("pag").src = url;
         }
     }
 
