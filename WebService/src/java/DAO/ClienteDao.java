@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -49,7 +51,7 @@ public class ClienteDao {
         
         return msj;
     }
-     public Cliente BuscarArticulo(String nombre){
+     public Cliente BuscarCliente(String nombre){
         Cliente c = null;
         try {
             PreparedStatement pps = con.Conexion().prepareStatement("SELECT * FROM cliente WHERE Nombre=?");
@@ -72,5 +74,25 @@ public class ClienteDao {
             System.out.println("Error");
         }
         return c;
+    }
+      public List<Cliente> llenarLista(){
+        List<Cliente> lista = new ArrayList<>();
+        try {
+            PreparedStatement pps = con.Conexion().prepareStatement("SELECT * FROM cliente");
+           ResultSet rs =pps.executeQuery();
+           while(rs.next()){
+               Cliente a = new Cliente();
+               a.setCedula(rs.getString(1));
+               a.setNombre(rs.getString(2));
+               a.setApellido(rs.getString(3));
+               a.setEdad(rs.getString(4));
+               
+               lista.add(a);
+           }
+        } catch (Exception e) {
+            System.out.println("Error "+e);
+        }
+        System.out.println(lista);
+        return lista;
     }
 }

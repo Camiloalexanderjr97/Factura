@@ -11,6 +11,19 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+         <form action="../Datos" method="POST">
+            <select style="width: 100px"name="nombre">
+                <%
+                    int x=0;
+                    try{
+                         x=Integer.parseInt(
+                                 request.getAttribute("x"));
+                    } catch(Exception e){
+                    }
+    }%>
+                <option style="width: 100px"><%=x %>   </option>>
+                <input  type="submit" value="enter">
+            </select>
+        </form>
     </body>
 </html>

@@ -18,6 +18,6 @@ public class MainArticulo {
 
     public static void main(String[] args) {
         ArticuloDao p = new ArticuloDao();
-        System.out.println(p.BuscarArticulo("Chorizo"));
+        System.out.println(p.llenarLista());
     }
 }

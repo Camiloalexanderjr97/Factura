@@ -11,8 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -69,6 +69,26 @@ public class ArticuloDao {
             System.out.println("Error");
         }
         return a;
+    }
+    public List<Articulo> llenarLista(){
+        List<Articulo> lista = new ArrayList<>();
+        try {
+            PreparedStatement pps = con.Conexion().prepareStatement("SELECT * FROM articulo");
+           ResultSet rs =pps.executeQuery();
+           while(rs.next()){
+               Articulo a = new Articulo();
+               a.setIdArticulo(rs.getInt(1));
+               a.setNombre(rs.getString(2));
+               a.setCantidad(rs.getInt(3));
+               a.setPrecio(rs.getInt(4));
+               
+               lista.add(a);
+           }
+        } catch (Exception e) {
+            System.out.println("Error "+e);
+        }
+        System.out.println(lista);
+        return lista;
     }
 
 }

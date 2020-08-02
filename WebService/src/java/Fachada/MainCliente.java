@@ -17,6 +17,6 @@ public class MainCliente {
     }
     public static void main(String[] args) {
         ClienteDao p = new ClienteDao();
-        System.out.println(p.BuscarArticulo("Juan"));
+        System.out.println(p.BuscarCliente("Juan"));
     }
 }
