@@ -12,6 +12,10 @@
         <servlet-name>p</servlet-name>
         <servlet-class>Servlet.p</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegistrarArticulo</servlet-name>
+        <servlet-class>Servlet.RegistrarArticulo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarCliente.do</servlet-name>
         <url-pattern>/RegistrarCliente</url-pattern>
@@ -21,8 +25,8 @@
         <url-pattern>/prueba</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>p</servlet-name>
-        <url-pattern>/p</url-pattern>
+        <servlet-name>RegistrarArticulo</servlet-name>
+        <url-pattern>/RegistrarArticulo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

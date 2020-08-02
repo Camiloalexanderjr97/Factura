@@ -10,17 +10,27 @@ const app = new Vue({
 
     methods: {
 
-        crear() {
-            var url = "JSP/Crear.jsp";
-
+        crearCliente() {
+            var url = "JSP/RegistrarCliente.jsp";
+ 
             document.getElementById("pag").src = url;
         },
-        modificar() {
+        crearArticulo() { 
+            var url = "JSP/RegistrarArticulo.jsp";
+ 
+            document.getElementById("pag").src = url;
+        },  
+        crearFactura() {
+            var url = "JSP/CrearFactura.jsp";
+ 
+            document.getElementById("pag").src = url;
+        },
+        modificarF() {
             var url = "JSP/Modificar.jsp";
 
             document.getElementById("pag").src = url;
         },
-        eliminar() {
+        eliminarF() {
             var url = "JSP/Eliminar.jsp";
 
             document.getElementById("pag").src = url;

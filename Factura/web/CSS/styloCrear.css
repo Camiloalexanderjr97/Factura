@@ -61,8 +61,7 @@ body {
 }
 .login.ok button .spinner {
   border-radius: 0;
-  border-top-color: transparent;
-  border-right-color: transparent;
+  border-top-color: #7AB7ED;
   height: 20px;
   animation: none;
   transform: rotateZ(-45deg);
@@ -72,7 +71,7 @@ body {
   padding: 15px 10px;
   margin-bottom: 10px;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   transition: border-width 0.2s ease;
   border-radius: 2px;
   color: #ccc;

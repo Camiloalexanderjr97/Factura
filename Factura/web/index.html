@@ -3,7 +3,7 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
--->
+--> 
 <html lang="en">
     <head>
         <title>Factura</title>
@@ -23,22 +23,27 @@ and open the template in the editor.
                     <ul id="contenido" class="list-unstyled components mb-5">
 
                         <li>
-                            <a href="#"  @click='crear' >Crear</a>
+                            <a href="#"  @click='crearCliente' >Crear Cliente</a>
+                        </li>
+                        <li>
+                            <a href="#"  @click='crearArticulo' >Crear Articulo</a>
+                        </li>
+                        <li> 
+                            <a href="#"  @click='crearFactura' >Crear Factura</a>
                         </li>
 
                         <li>
-                            <a href="#" @click='modificar' >Modificar</a>
+                            <a href="#" @click='modificar' >Modificar Factura</a>
                         </li>
-     
+
                         <li>
-                            <a href="#"  @click='eliminar' >Eliminar</a>
+                            <a href="#"  @click='eliminar' >Eliminar Factura</a>
                         </li>
                         <li>
-                            <form action="p" method="POST">
+                            <form action="Datos" method="POST">
+                                <input  type="submit" value="prueba">
+                            </form>
                             
-                             
-            <input  type="submit" value="prueba">
-        </form>
                         </li>
 
                     </ul>

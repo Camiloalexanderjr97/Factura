@@ -4,21 +4,97 @@
 <xsd:import namespace="http://Service/" schemaLocation="http://localhost:8080/WebService/ServiceWeb?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="RegistrarArticulo">
+<part name="parameters" element="tns:RegistrarArticulo"/>
+</message>
+<message name="RegistrarArticuloResponse">
+<part name="parameters" element="tns:RegistrarArticuloResponse"/>
+</message>
 <message name="RegistrarCliente">
 <part name="parameters" element="tns:RegistrarCliente"/>
 </message>
 <message name="RegistrarClienteResponse">
 <part name="parameters" element="tns:RegistrarClienteResponse"/>
 </message>
+<message name="Articulos">
+<part name="parameters" element="tns:Articulos"/>
+</message>
+<message name="ArticulosResponse">
+<part name="parameters" element="tns:ArticulosResponse"/>
+</message>
+<message name="CrearFactura">
+<part name="parameters" element="tns:CrearFactura"/>
+</message>
+<message name="CrearFacturaResponse">
+<part name="parameters" element="tns:CrearFacturaResponse"/>
+</message>
+<message name="Clientes">
+<part name="parameters" element="tns:Clientes"/>
+</message>
+<message name="ClientesResponse">
+<part name="parameters" element="tns:ClientesResponse"/>
+</message>
 <portType name="ServiceWeb">
+<operation name="RegistrarArticulo">
+<input wsam:Action="http://Service/ServiceWeb/RegistrarArticuloRequest" message="tns:RegistrarArticulo"/>
+<output wsam:Action="http://Service/ServiceWeb/RegistrarArticuloResponse" message="tns:RegistrarArticuloResponse"/>
+</operation>
 <operation name="RegistrarCliente">
 <input wsam:Action="http://Service/ServiceWeb/RegistrarClienteRequest" message="tns:RegistrarCliente"/>
 <output wsam:Action="http://Service/ServiceWeb/RegistrarClienteResponse" message="tns:RegistrarClienteResponse"/>
 </operation>
+<operation name="Articulos">
+<input wsam:Action="http://Service/ServiceWeb/ArticulosRequest" message="tns:Articulos"/>
+<output wsam:Action="http://Service/ServiceWeb/ArticulosResponse" message="tns:ArticulosResponse"/>
+</operation>
+<operation name="CrearFactura">
+<input wsam:Action="http://Service/ServiceWeb/CrearFacturaRequest" message="tns:CrearFactura"/>
+<output wsam:Action="http://Service/ServiceWeb/CrearFacturaResponse" message="tns:CrearFacturaResponse"/>
+</operation>
+<operation name="Clientes">
+<input wsam:Action="http://Service/ServiceWeb/ClientesRequest" message="tns:Clientes"/>
+<output wsam:Action="http://Service/ServiceWeb/ClientesResponse" message="tns:ClientesResponse"/>
+</operation>
 </portType>
 <binding name="ServiceWebPortBinding" type="tns:ServiceWeb">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="RegistrarArticulo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="RegistrarCliente">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="Articulos">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CrearFactura">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="Clientes">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
