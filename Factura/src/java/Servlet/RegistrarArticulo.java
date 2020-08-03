@@ -35,10 +35,9 @@ public class RegistrarArticulo extends HttpServlet {
             String nombre = request.getParameter("nombre");
             int cantidad = Integer.parseInt(request.getParameter("cantidad"));
             int precio = Integer.parseInt(request.getParameter("precio"));
-
+            
             registrarArticulo(nombre, cantidad, precio);
            
-//          request.getRequestDispatcher("index.html").forward(request, response);
         }
     }
 

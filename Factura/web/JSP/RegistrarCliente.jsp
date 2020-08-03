@@ -19,7 +19,6 @@
     <input name="cedula" type="text" placeholder="Cedula" autofocus/>
     <i class="fa fa-user"></i>
     <input name="nombre" type="text" placeholder="Nombre" />
-    <input name="apellido" type="text" placeholder="Apellido" autofocus/>
     <i class="fa fa-user"></i>
     <input name="edad"   type="text" placeholder="Edad" />
     <i class="fa fa-key"></i>

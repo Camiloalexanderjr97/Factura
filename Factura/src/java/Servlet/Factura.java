@@ -5,18 +5,24 @@
  */
 package Servlet;
 
+import Modelo.ClienteList;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.WebServiceRef;
+import service.ServiceWeb_Service;
 
 /**
  *
  * @author Alexander
  */
-public class p extends HttpServlet {
+public class Factura extends HttpServlet {
+
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/WebService/ServiceWeb.wsdl")
+    private ServiceWeb_Service service;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,15 +38,13 @@ public class p extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet p</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet p at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String nombre = request.getParameter("cliente");
+
+            String articulo = request.getParameter("articulo");
+            int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+
+            crearFactura(articulo, nombre, cantidad);
+
         }
     }
 
@@ -82,5 +86,12 @@ public class p extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private String crearFactura(java.lang.String articulo, java.lang.String cliente, int cantidad) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        service.ServiceWeb port = service.getServiceWebPort();
+        return port.crearFactura(articulo, cliente, cantidad);
+    }
 
 }

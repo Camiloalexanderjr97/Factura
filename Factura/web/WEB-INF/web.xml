@@ -5,12 +5,8 @@
         <servlet-class>Servlet.RegistrarCliente</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>prueba.do</servlet-name>
-        <servlet-class>Servlet.prueba</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>p</servlet-name>
-        <servlet-class>Servlet.p</servlet-class>
+        <servlet-name>Factura</servlet-name>
+        <servlet-class>Servlet.Factura</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RegistrarArticulo</servlet-name>
@@ -21,8 +17,8 @@
         <url-pattern>/RegistrarCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>prueba.do</servlet-name>
-        <url-pattern>/prueba</url-pattern>
+        <servlet-name>Factura</servlet-name>
+        <url-pattern>/Factura</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegistrarArticulo</servlet-name>

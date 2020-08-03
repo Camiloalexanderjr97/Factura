@@ -11,12 +11,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.WebServiceRef;
+import service.ServiceWeb_Service;
 
 /**
  *
  * @author Alexander
  */
 public class RegistrarCliente extends HttpServlet {
+
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/WebService/ServiceWeb.wsdl")
+    private ServiceWeb_Service service;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,9 +39,8 @@ public class RegistrarCliente extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
           String cedula = request.getParameter("cedula");
           String nombre = request.getParameter("nombre");
-          String apellido = request.getParameter("apellido");
           String edad = request.getParameter("edad");
-            registrarCliente(cedula, nombre, apellido, edad);
+            clienteRegistro(cedula, nombre, edad);
         }
     }
 
@@ -79,10 +83,18 @@ public class RegistrarCliente extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private static String registrarCliente(java.lang.String cedula, java.lang.String nombre, java.lang.String apellido, java.lang.String edad) {
-        service.ServiceWeb_Service service = new service.ServiceWeb_Service();
+    private String clienteRegistro(java.lang.String cedula, java.lang.String nombre, java.lang.String edad) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
         service.ServiceWeb port = service.getServiceWebPort();
-        return port.registrarCliente(cedula, nombre, apellido, edad);
+        return port.clienteRegistro(cedula, nombre, edad);
     }
+
+
+    
+
+   
+
+
 
 }

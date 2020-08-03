@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Eliminar
-    Created on : 29/07/2020, 09:05:27 PM
+    Document   : EliminarFactura
+    Created on : 2/08/2020, 10:36:58 PM
     Author     : Alexander
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello Eliminar!</h1>
+        <h1>Hello World!</h1>
     </body>
 </html>

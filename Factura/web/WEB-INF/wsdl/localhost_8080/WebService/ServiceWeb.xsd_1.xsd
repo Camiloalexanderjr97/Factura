@@ -4,6 +4,10 @@
 
 <xs:element name="ArticulosResponse" type="tns:ArticulosResponse"/>
 
+<xs:element name="ClienteRegistro" type="tns:ClienteRegistro"/>
+
+<xs:element name="ClienteRegistroResponse" type="tns:ClienteRegistroResponse"/>
+
 <xs:element name="Clientes" type="tns:Clientes"/>
 
 <xs:element name="ClientesResponse" type="tns:ClientesResponse"/>
@@ -15,23 +19,6 @@
 <xs:element name="RegistrarArticulo" type="tns:RegistrarArticulo"/>
 
 <xs:element name="RegistrarArticuloResponse" type="tns:RegistrarArticuloResponse"/>
-
-<xs:element name="RegistrarCliente" type="tns:RegistrarCliente"/>
-
-<xs:element name="RegistrarClienteResponse" type="tns:RegistrarClienteResponse"/>
-
-<xs:complexType name="CrearFactura">
-<xs:sequence>
-<xs:element name="Cliente" type="xs:anyType" minOccurs="0"/>
-<xs:element name="Articulo" type="xs:anyType" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="CrearFacturaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
 
 <xs:complexType name="Clientes">
 <xs:sequence/>
@@ -45,7 +32,6 @@
 
 <xs:complexType name="cliente">
 <xs:sequence>
-<xs:element name="apellido" type="xs:string" minOccurs="0"/>
 <xs:element name="cedula" type="xs:string" minOccurs="0"/>
 <xs:element name="edad" type="xs:string" minOccurs="0"/>
 <xs:element name="factura" type="tns:factura" minOccurs="0"/>
@@ -74,6 +60,20 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="CrearFactura">
+<xs:sequence>
+<xs:element name="Articulo" type="xs:string" minOccurs="0"/>
+<xs:element name="Cliente" type="xs:string" minOccurs="0"/>
+<xs:element name="Cantidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearFacturaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="Articulos">
 <xs:sequence/>
 </xs:complexType>
@@ -81,21 +81,6 @@
 <xs:complexType name="ArticulosResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:articulo" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="RegistrarCliente">
-<xs:sequence>
-<xs:element name="Cedula" type="xs:string" minOccurs="0"/>
-<xs:element name="Nombre" type="xs:string" minOccurs="0"/>
-<xs:element name="Apellido" type="xs:string" minOccurs="0"/>
-<xs:element name="Edad" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="RegistrarClienteResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -108,6 +93,20 @@
 </xs:complexType>
 
 <xs:complexType name="RegistrarArticuloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ClienteRegistro">
+<xs:sequence>
+<xs:element name="Cedula" type="xs:string" minOccurs="0"/>
+<xs:element name="Nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="Edad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ClienteRegistroResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
