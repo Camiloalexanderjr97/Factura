@@ -13,10 +13,8 @@ package VO;
  */
 public class Cliente  {
 
-    private static final long serialVersionUID = 1L;
     private String cedula;
     private String nombre;
-    private String apellido;
     private String edad;
     private Factura factura;
 
@@ -27,10 +25,9 @@ public class Cliente  {
         this.cedula = cedula;
     }
 
-    public Cliente(String cedula, String nombre, String apellido, String edad) {
+    public Cliente(String cedula, String nombre, String edad) {
         this.cedula = cedula;
         this.nombre = nombre;
-        this.apellido = apellido;
         this.edad = edad;
     }
 
@@ -50,13 +47,6 @@ public class Cliente  {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
 
     public String getEdad() {
         return edad;
@@ -96,7 +86,7 @@ public class Cliente  {
 
     @Override
     public String toString() {
-        return "Cliente{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", factura=" + factura + '}';
+        return "Cliente{" + "cedula=" + cedula + ", nombre=" + nombre + ", edad=" + edad + ", factura=" + factura + '}';
     }
 
     

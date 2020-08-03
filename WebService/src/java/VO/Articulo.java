@@ -6,7 +6,6 @@
 package VO;
 
 
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *

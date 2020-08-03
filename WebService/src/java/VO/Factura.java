@@ -19,6 +19,7 @@ public class Factura {
     private Date fecha;
     private int iva;
     private int total;
+    private String estado;
     private Cliente clienteCliente;
     private Articulo articuloArticulo;
 
@@ -29,11 +30,12 @@ public class Factura {
         this.idfactura = idfactura;
     }
 
-    public Factura(Integer idfactura, Date fecha, int iva, int total) {
+    public Factura(Integer idfactura, Date fecha, int iva, int total, String estado) {
         this.idfactura = idfactura;
         this.fecha = fecha;
         this.iva = iva;
         this.total = total;
+        this.estado=estado;
     }
 
     public Integer getIdfactura() {
@@ -66,6 +68,13 @@ public class Factura {
 
     public void setTotal(int total) {
         this.total = total;
+    }
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public Cliente getClienteCliente() {

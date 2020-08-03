@@ -13,8 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -32,14 +30,13 @@ public class ClienteDao {
     
    
     
-    public String crearCliente(String cedula,String nombre, String apellido, String edad){
+    public String crearCliente(String cedula,String nombre, String edad){
        String msj="";
         try {
-           PreparedStatement pps = con.Conexion().prepareStatement("INSERT INTO cliente(Cedula,Nombre,Apellido,Edad) VALUES (?,?,?,?)");
+           PreparedStatement pps = con.Conexion().prepareStatement("INSERT INTO cliente(Cedula,Nombre,Edad) VALUES (?,?,?)");
             pps.setString(1, cedula);
             pps.setString(2, nombre);
-            pps.setString(3, apellido);
-            pps.setString(4, edad);
+            pps.setString(3, edad);
             pps.executeUpdate();
             msj="Cliente Creado";
             System.out.println(msj);
@@ -63,8 +60,7 @@ public class ClienteDao {
                 c = new Cliente();
                 c.setCedula(rs.getString(1));
                 c.setNombre(rs.getString(2));
-                c.setApellido(rs.getString(3));
-                c.setEdad(rs.getString(4));
+                c.setEdad(rs.getString(3));
                 
                 System.out.println("correcto");
                 return c;
@@ -84,8 +80,7 @@ public class ClienteDao {
                Cliente a = new Cliente();
                a.setCedula(rs.getString(1));
                a.setNombre(rs.getString(2));
-               a.setApellido(rs.getString(3));
-               a.setEdad(rs.getString(4));
+               a.setEdad(rs.getString(3));
                
                lista.add(a);
            }

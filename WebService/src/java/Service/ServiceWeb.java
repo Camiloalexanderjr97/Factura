@@ -7,6 +7,7 @@ package Service;
 
 import DAO.ArticuloDao;
 import DAO.ClienteDao;
+import DAO.FacturaDao;
 import VO.Articulo;
 import VO.Cliente;
 import java.util.List;
@@ -28,32 +29,12 @@ public class ServiceWeb {
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "RegistrarCliente")
-    public String RegistrarCliente(@WebParam(name = "Cedula") String Cedula, @WebParam(name = "Nombre") String Nombre, @WebParam(name = "Apellido") String Apellido, @WebParam(name = "Edad") String Edad) {
-        //TODO write your implementation code here:
-
-        String msj = c.crearCliente(Cedula, Nombre, Apellido, Edad);
-        return msj;
-    }
-
-    /**
-     * Web service operation
-     */
     @WebMethod(operationName = "RegistrarArticulo")
     public String RegistrarArticulo(@WebParam(name = "Nombre") String Nombre, @WebParam(name = "Cantidad") int Cantidad, @WebParam(name = "Precio") int Precio) {
         //TODO write your implementation code here:
 
         String msj = a.crearArticulo(Nombre, Cantidad, Precio);
         return msj;
-    }
-
-    /**
-     * Web service operation
-     */
-    @WebMethod(operationName = "CrearFactura")
-    public String CrearFactura(@WebParam(name = "Cliente") Object Cliente, @WebParam(name = "Articulo") Object Articulo) {
-        //TODO write your implementation code here:
-        return null;
     }
 
     /**
@@ -72,6 +53,26 @@ public class ServiceWeb {
     public List<Cliente> Clientes() {
         //TODO write your implementation code here:
         return c.llenarLista();
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ClienteRegistro")
+    public String ClienteRegistro(@WebParam(name = "Cedula") String Cedula, @WebParam(name = "Nombre") String Nombre, @WebParam(name = "Edad") String Edad) {
+        //TODO write your implementation code here:
+        return c.crearCliente(Cedula, Nombre, Edad);
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "CrearFactura")
+    public String CrearFactura(@WebParam(name = "Articulo") String Articulo, @WebParam(name = "Cliente") String Cliente, @WebParam(name = "Cantidad") int Cantidad) {
+        FacturaDao f = new FacturaDao();
+
+        String msj = f.CrearFactura(Articulo, Cliente, Cantidad);
+        return msj;  
     }
 
     /**

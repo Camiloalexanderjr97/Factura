@@ -5,19 +5,19 @@
  */
 package Fachada;
 
-import DAO.ArticuloDao;
+import DAO.FacturaDao;
 
 /**
  *
  * @author Alexander
  */
-public class MainArticulo {
+public class MainFactura {
 
-    public MainArticulo() {
+    public MainFactura() {
     }
 
     public static void main(String[] args) {
-        ArticuloDao p = new ArticuloDao();
-        System.out.println(p.BuscarArticulo("harina"));
+        FacturaDao p = new FacturaDao();
+        System.out.println(p.llenarLista());
     }
 }
