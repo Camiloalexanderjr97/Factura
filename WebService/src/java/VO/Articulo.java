@@ -19,7 +19,6 @@ public class Articulo  {
     private String nombre;
     private int cantidad;
     private int precio;
-    private Factura factura;
 
     public Articulo() {
     }
@@ -67,13 +66,6 @@ public class Articulo  {
         this.precio = precio;
     }
 
-    public Factura getFactura() {
-        return factura;
-    }
-
-    public void setFactura(Factura factura) {
-        this.factura = factura;
-    }
 
     @Override
     public int hashCode() {
@@ -97,7 +89,7 @@ public class Articulo  {
 
     @Override
     public String toString() {
-        return "Articulo{" + "idArticulo=" + idArticulo + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio + ", factura=" + factura + '}';
+        return "Articulo{" + "idArticulo=" + idArticulo + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio+ '}';
     }
 
   

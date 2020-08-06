@@ -10,6 +10,7 @@ import DAO.ClienteDao;
 import DAO.FacturaDao;
 import VO.Articulo;
 import VO.Cliente;
+import VO.Factura;
 import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -25,6 +26,8 @@ public class ServiceWeb {
     ArticuloDao a = new ArticuloDao();
 
     ClienteDao c = new ClienteDao();
+
+    FacturaDao f = new FacturaDao();
 
     /**
      * Web service operation
@@ -50,11 +53,21 @@ public class ServiceWeb {
      * Web service operation
      */
     @WebMethod(operationName = "Clientes")
-    public List<Cliente> Clientes() {
+    public List<Cliente> Clientes(){
         //TODO write your implementation code here:
         return c.llenarLista();
     }
 
+       @WebMethod(operationName = "FacturaList")
+    public List<Factura> FacturaList() {
+        //TODO write your implementation code here:
+        return f.llenarLista();
+    }
+
+    /**
+     * Web service operation
+     */
+    
     /**
      * Web service operation
      */
@@ -68,14 +81,24 @@ public class ServiceWeb {
      * Web service operation
      */
     @WebMethod(operationName = "CrearFactura")
-    public String CrearFactura(@WebParam(name = "Articulo") String Articulo, @WebParam(name = "Cliente") String Cliente, @WebParam(name = "Cantidad") int Cantidad) {
-        FacturaDao f = new FacturaDao();
+    public String CrearFactura(@WebParam(name = "Articulo") String Articulo, @WebParam(name = "Cliente") String Cliente, @WebParam(name = "Cantidad") int Cantidad,@WebParam(name = "Iva") int Iva){
 
-        String msj = f.CrearFactura(Articulo, Cliente, Cantidad);
-        return msj;  
+        String msj = f.CrearFactura(Articulo, Cliente, Cantidad,Iva);
+        return msj;
     }
 
     /**
      * Web service operation
      */
+    @WebMethod(operationName = "ModificarFactura")
+    public String ModificarFactura(@WebParam(name = "Factura") Factura Factura) {
+        
+        //TODO write your implementation code here:
+        return f.ModificarFactura(Factura);
+    }
+
+    /**
+     * Web service operation
+     */
+ 
 }

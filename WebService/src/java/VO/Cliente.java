@@ -16,8 +16,7 @@ public class Cliente  {
     private String cedula;
     private String nombre;
     private String edad;
-    private Factura factura;
-
+        
     public Cliente() {
     }
 
@@ -54,15 +53,7 @@ public class Cliente  {
 
     public void setEdad(String edad) {
         this.edad = edad;
-    }
-
-    public Factura getFactura() {
-        return factura;
-    }
-
-    public void setFactura(Factura factura) {
-        this.factura = factura;
-    }
+    } 
 
     @Override
     public int hashCode() {
@@ -86,7 +77,7 @@ public class Cliente  {
 
     @Override
     public String toString() {
-        return "Cliente{" + "cedula=" + cedula + ", nombre=" + nombre + ", edad=" + edad + ", factura=" + factura + '}';
+        return "Cliente{" + "cedula=" + cedula + ", nombre=" + nombre + ", edad=" + edad + '}';
     }
 
     

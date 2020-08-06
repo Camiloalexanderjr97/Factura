@@ -13,10 +13,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-/**
- *
- * @author estudiante
- */
 public class Conexion {
     Connection con;
     Statement st;
@@ -41,9 +37,14 @@ public class Conexion {
         }
         return con;
     }
-      Statement CreStatement(){
-          throw new UnsupportedOperationException("No soportado");
-      }
+     
+    public void Desconectar(){
+        try{
+            con.close();
+        }catch(Exception e){
+            
+        }
+    } 
     public static void main(String[] args) {
         Conexion con = new Conexion();
         con.Conexion();

@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,6 +24,8 @@ public class ArticuloDao {
 
     Conexion con = new Conexion();
     Connection cn = con.Conexion();
+    PreparedStatement pps = null;
+    ResultSet rs = null;
 
     public ArticuloDao() {
     }
@@ -29,7 +33,7 @@ public class ArticuloDao {
     public String crearArticulo(String nombre, int cantidad, int precio) {
         String msj = "";
         try {
-            PreparedStatement pps = con.Conexion().prepareStatement("INSERT INTO articulo(Id_Articulo,Nombre,Cantidad,Precio) VALUES (?,?,?,?)");
+            pps = con.Conexion().prepareStatement("INSERT INTO articulo(Id_Articulo,Nombre,Cantidad,Precio) VALUES (?,?,?,?)");
 
             pps.setInt(1, 0);
             pps.setString(2, nombre);
@@ -41,51 +45,69 @@ public class ArticuloDao {
 
         } catch (Exception ex) {
             System.out.println(ex);
-        }
+        } finally {
+            try {
+                con.Desconectar();
+            } catch (Exception e) {
 
+            }
+        }
         return msj;
     }
-    
-    public Articulo BuscarArticulo(String nombre){
+
+    public Articulo BuscarArticulo(String nombre) {
         Articulo a = null;
         try {
-            PreparedStatement pps = con.Conexion().prepareStatement("SELECT * FROM articulo WHERE Nombre=?");
-            
+            pps = con.Conexion().prepareStatement("SELECT * FROM articulo WHERE Nombre=?");
+
             pps.setString(1, nombre);
-            
-            ResultSet rs = pps.executeQuery();
-            if(rs.next()){
+
+            rs = pps.executeQuery();
+            if (rs.next()) {
                 a = new Articulo();
                 a.setIdArticulo(rs.getInt(1));
                 a.setNombre(rs.getString(2));
                 a.setCantidad(rs.getInt(3));
                 a.setPrecio(rs.getInt(4));
-                
+
                 System.out.println("correcto");
                 return a;
             }
-            
+
         } catch (SQLException ex) {
             System.out.println("Error");
+        } finally {
+            try {
+                con.Desconectar();
+            } catch (Exception e) {
+
+            }
         }
         return a;
     }
-    public List<Articulo> llenarLista(){
+
+    public List<Articulo> llenarLista() {
         List<Articulo> lista = new ArrayList<>();
         try {
-            PreparedStatement pps = con.Conexion().prepareStatement("SELECT * FROM articulo");
-           ResultSet rs =pps.executeQuery();
-           while(rs.next()){
-               Articulo a = new Articulo();
-               a.setIdArticulo(rs.getInt(1));
-               a.setNombre(rs.getString(2));
-               a.setCantidad(rs.getInt(3));
-               a.setPrecio(rs.getInt(4));
-               
-               lista.add(a);
-           }
+            pps = con.Conexion().prepareStatement("SELECT * FROM articulo");
+            rs = pps.executeQuery();
+            while (rs.next()) {
+                Articulo a = new Articulo();
+                a.setIdArticulo(rs.getInt(1));
+                a.setNombre(rs.getString(2));
+                a.setCantidad(rs.getInt(3));
+                a.setPrecio(rs.getInt(4));
+
+                lista.add(a);
+            }
         } catch (Exception e) {
-            System.out.println("Error "+e);
+            System.out.println("Error " + e);
+        } finally {
+            try {
+                con.Desconectar();
+            } catch (Exception e) {
+
+            }
         }
         System.out.println(lista);
         return lista;

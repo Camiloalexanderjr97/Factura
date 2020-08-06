@@ -6,6 +6,7 @@
 package Fachada;
 
 import DAO.ClienteDao;
+import java.sql.SQLException;
 
 /**
  *
@@ -15,7 +16,7 @@ public class MainCliente {
 
     public MainCliente() {
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         ClienteDao p = new ClienteDao();
         System.out.println(p.BuscarCliente("Juan"));
     }

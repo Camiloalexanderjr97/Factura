@@ -18,6 +18,8 @@ public class Factura {
     private Integer idfactura;
     private Date fecha;
     private int iva;
+    private int cantidad;
+    private int precio;
     private int total;
     private String estado;
     private Cliente clienteCliente;
@@ -30,12 +32,14 @@ public class Factura {
         this.idfactura = idfactura;
     }
 
-    public Factura(Integer idfactura, Date fecha, int iva, int total, String estado) {
+    public Factura(Integer idfactura, Date fecha,int cantidad,int precio, int iva, int total, String estado) {
         this.idfactura = idfactura;
         this.fecha = fecha;
         this.iva = iva;
         this.total = total;
         this.estado=estado;
+        this.precio=precio;
+        this.cantidad=cantidad;
     }
 
     public Integer getIdfactura() {
@@ -65,9 +69,23 @@ public class Factura {
     public int getTotal() {
         return total;
     }
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
 
     public void setTotal(int total) {
         this.total = total;
+    }
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
     public String getEstado() {
         return estado;
@@ -115,7 +133,6 @@ public class Factura {
 
     @Override
     public String toString() {
-        return "DTO.Factura[ idfactura=" + idfactura + " ]";
+        return "Factura{" + ", articuloArticulo=" + articuloArticulo.getIdArticulo()+ ", clienteCliente=" + clienteCliente.getCedula() + ", Precio Unitario="+precio+", cantidad=" + cantidad +", iva=" + iva   + ", total=" + total+", Estado=" + estado  +'}';
     }
-    
 }

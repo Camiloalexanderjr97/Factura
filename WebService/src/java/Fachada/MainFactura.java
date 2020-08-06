@@ -6,6 +6,7 @@
 package Fachada;
 
 import DAO.FacturaDao;
+import java.sql.SQLException;
 
 /**
  *
@@ -16,8 +17,9 @@ public class MainFactura {
     public MainFactura() {
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         FacturaDao p = new FacturaDao();
-        System.out.println(p.llenarLista());
+        
+        System.out.println(p.ModificarFactura(p.BuscarFactura(90909)));
     }
 }
