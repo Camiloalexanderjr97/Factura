@@ -1,5 +1,5 @@
 <%-- 
-    Document   : Crear
+    Document   : Modificar
     Created on : 29/07/2020, 06:10:21 PM
     Author     : Alexander
 --%>
@@ -18,30 +18,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Crear Factura</title>
+        <title>Modificar Factura</title>
         <link rel="stylesheet" href="../CSS/styloCrear_1.css">
     </head>
     <body>
 
 
         <div class="wrapper">
-            <form class="login" action="../Factura" method="post">
+            <form class="login" action="../ActualizarF" method="POST" >
 
-                <p class="title">Registro de Factura</p>
+                <p class="title">Editar Factura</p>
+                
+                <i class="fa fa-user"></i>
+                <input name="id" type="number" placeholder="ID" />
+
                 <label>Articulo</label>
-                <select name="articulo">
+                <select  name="articulo">
                     <%
                         ArticuloList a = new ArticuloList();
                         List<Articulo> lista = a.articulos();
                         for (Articulo arts : lista) {
                     %>
-                    <option style="width: 100px"><%=arts.getNombre()%>   </option>>
+                    <option ><%=arts.getNombre()%>   </option>>
                     <%}%>
                 </select>
 
                 <i class="fa fa-user"></i>
                 <label>Cliente</label>
-                
+
                 <select name="cliente" >
                     <%
                         ClienteList c = new ClienteList();
@@ -53,10 +57,15 @@
                 </select>
 
                 <i class="fa fa-user"></i>
+                
+                <input name="fecha" type="date" placeholder="Fecha" /> 
                 <input name="cantidad" type="number" placeholder="Cantidad" />
-
-                <Button class="spinner">Registrar</button>
-
+                <input name="precio" type="number" placeholder="Precio" />
+                
+                <i class="fa fa-user"></i>
+                <input name="iva" type="number" placeholder="Iva" />
+                <input type="submit" value="Modificar">
+                
 
             </form>
         </div>

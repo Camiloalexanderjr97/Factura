@@ -5,20 +5,24 @@
  */
 package Servlet;
 
+import Modelo.ArticuloList;
+import Modelo.ClienteList;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.WebServiceRef;
+import service.Factura;
+import service.Cliente;
+import service.Articulo;
 import service.ServiceWeb_Service;
 
 /**
  *
  * @author Alexander
  */
-public class Factura extends HttpServlet {
+public class ActualizarF extends HttpServlet {
 
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/WebService/ServiceWeb.wsdl")
     private ServiceWeb_Service service;
@@ -32,20 +36,48 @@ public class Factura extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    ArticuloList a = new ArticuloList();
+    Articulo art = new Articulo();
+    Cliente c = new Cliente();
+    ClienteList clte = new ClienteList();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try {
             /* TODO output your page here. You may use following sample code. */
-            String nombre = request.getParameter("cliente");
-            String articulo = request.getParameter("articulo");
-            String auxIva = request.getParameter("iva");
-           
-            int iva = Integer.parseInt(auxIva);
-            int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-           
-            crearFactura(articulo, nombre, cantidad, iva);
+            String id = request.getParameter("id");
+            
+            String cedula = request.getParameter("cliente");
 
+            String articulo = request.getParameter("articulo") + "";
+
+            String cantidad = request.getParameter("cantidad");
+            
+            String iva = request.getParameter("iva");
+            String precio = request.getParameter("precio");
+            
+            int cant = Integer.parseInt(cantidad);
+            int i = Integer.parseInt(id);
+            int ivaN = Integer.parseInt(iva);
+            int precioN = Integer.parseInt(precio);
+
+            Factura f = new Factura();
+            
+            f.setIdfactura(i);
+
+            c.setCedula(clte.buscar(cedula).getCedula());
+            f.setClienteCliente(c);
+            
+            art.setIdArticulo(a.buscar(articulo).getIdArticulo());
+            f.setArticuloArticulo(art);
+            
+            f.setCantidad(cant);
+            f.setPrecio(precioN);
+            f.setIva(ivaN);
+            modificarFactura(f);
+        } catch (Exception e) {
+            System.out.println("error"+e);
         }
     }
 
@@ -88,11 +120,11 @@ public class Factura extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private String crearFactura(java.lang.String articulo, java.lang.String cliente, int cantidad, int iva) {
+    private String modificarFactura(service.Factura factura) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
         // If the calling of port operations may lead to race condition some synchronization is required.
         service.ServiceWeb port = service.getServiceWebPort();
-        return port.crearFactura(articulo, cliente, cantidad, iva);
+        return port.modificarFactura(factura);
     }
 
 }

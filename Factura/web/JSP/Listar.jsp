@@ -4,6 +4,9 @@
     Author     : Alexander
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="service.Factura"%>
+<%@page import="Modelo.FacturaList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,20 +18,35 @@
         <table border="1" cellpadding="2">
             <thead>
                 <tr>
+                    <th>N° Factura</th>
                     <th>Articulo</th>
                     <th>Cliente</th>
+                    <th>Cantidad</th>
                     <th>Iva</th>
                     <th>Total</th>
                 </tr>
             </thead>
+
+            <%
+                FacturaList f = new FacturaList();
+                List<Factura> lista = f.facturaList();
+                for (Factura fact : lista) {
+            %>
             <tbody>
                 <tr>
-                    
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><%=fact.getIdfactura()%>   </td>
+                    <td><%=fact.getArticuloArticulo().getIdArticulo()%>   </td>
+                    <td><%=fact.getClienteCliente().getCedula()%>  </td>
+                    <td><%=fact.getCantidad()%>   </td>
+                    <td><%=fact.getIva()%>   </td>
+                    <td><%=fact.getTotal()%>   </td>
+                    <td>
+                        <a href="../ModificarF?accion=editar" >Editar</a>
+                        <a href="EliminarFactura.jsp">Eliminar</a>
+                    </td>
                 </tr>
+                <%}%>
+
             </tbody>
         </table>
 

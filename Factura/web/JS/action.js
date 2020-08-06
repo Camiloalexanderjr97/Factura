@@ -24,9 +24,9 @@ const app = new Vue({
             var url = "JSP/CrearFactura.jsp";
  
             document.getElementById("pag").src = url;
-        },
-        modificarF() {
-            var url = "JSP/Modificar.jsp";
+        }, 
+        modificarF() { 
+            var url = "JSP/Listar.jsp";  
 
             document.getElementById("pag").src = url;
         },

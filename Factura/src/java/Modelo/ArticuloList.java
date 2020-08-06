@@ -5,6 +5,9 @@
  */
 package Modelo;
 
+import java.util.List;
+import service.Articulo;
+
 /**
  *
  * @author Alexander
@@ -16,5 +19,18 @@ public class ArticuloList {
         service.ServiceWeb port = service.getServiceWebPort();
         return port.articulos();
     }
+    
+    public Articulo buscar(String nombre){
+        Articulo n = null;
+        
+                        List<Articulo> lista = articulos();
+                        for (Articulo arts : lista) {
+                            if(arts.getNombre().equalsIgnoreCase(nombre)){
+                                n=arts;
+                            }
+                        }
+        return n;
+    }
+    
 
 }

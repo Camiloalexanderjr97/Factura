@@ -11,17 +11,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.WebServiceRef;
-import service.ServiceWeb_Service;
+import service.Factura;
+import service.Cliente;
+import service.Articulo;
 
 /**
  *
  * @author Alexander
  */
-public class Factura extends HttpServlet {
-
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/WebService/ServiceWeb.wsdl")
-    private ServiceWeb_Service service;
+public class Actualizar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,15 +35,26 @@ public class Factura extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String nombre = request.getParameter("cliente");
-            String articulo = request.getParameter("articulo");
-            String auxIva = request.getParameter("iva");
            
-            int iva = Integer.parseInt(auxIva);
-            int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-           
-            crearFactura(articulo, nombre, cantidad, iva);
+            int id = Integer.parseInt(request.getParameter("id"));
+            String cedula = request.getParameter("cliente");
 
+            int articulo = Integer.parseInt(request.getParameter("articulo"));
+            int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+            int iva = Integer.parseInt(request.getParameter("iva"));
+//            Factura f = new Factura();
+//            System.out.println("---------");
+//            f.setIdfactura(id);
+//
+//            Cliente c = new Cliente();
+//            c.setCedula(cedula);
+//            f.setClienteCliente(c);
+//            Articulo a = new Articulo();
+//            a.setIdArticulo(articulo);
+//            f.setArticuloArticulo(a);
+//            f.setCantidad(cantidad);
+//            f.setIva(iva);
+            System.out.println("-1----------------------1");
         }
     }
 
@@ -76,6 +85,8 @@ public class Factura extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+            response.sendRedirect("JSP/Listar.jsp");
     }
 
     /**
@@ -87,12 +98,5 @@ public class Factura extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private String crearFactura(java.lang.String articulo, java.lang.String cliente, int cantidad, int iva) {
-        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
-        // If the calling of port operations may lead to race condition some synchronization is required.
-        service.ServiceWeb port = service.getServiceWebPort();
-        return port.crearFactura(articulo, cliente, cantidad, iva);
-    }
 
 }

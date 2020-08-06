@@ -12,13 +12,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.WebServiceRef;
+import service.Articulo;
+import service.Cliente;
 import service.ServiceWeb_Service;
+import service.Factura;
 
 /**
  *
  * @author Alexander
  */
-public class Factura extends HttpServlet {
+public class ModificarF extends HttpServlet {
 
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/WebService/ServiceWeb.wsdl")
     private ServiceWeb_Service service;
@@ -35,17 +38,19 @@ public class Factura extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+ 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String nombre = request.getParameter("cliente");
-            String articulo = request.getParameter("articulo");
-            String auxIva = request.getParameter("iva");
-           
-            int iva = Integer.parseInt(auxIva);
-            int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-           
-            crearFactura(articulo, nombre, cantidad, iva);
+            String acceso = "";
+            String action = request.getParameter("accion");
 
+            if (action.equalsIgnoreCase("editar")) {
+                System.out.println("--------------------");
+                request.setAttribute("idFact", request.getParameter("Id"));
+                acceso = "/JSP/ModificarFactura.jsp";
+
+            }             request.getRequestDispatcher(acceso).forward(request, response);
+         
         }
     }
 
@@ -88,11 +93,6 @@ public class Factura extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private String crearFactura(java.lang.String articulo, java.lang.String cliente, int cantidad, int iva) {
-        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
-        // If the calling of port operations may lead to race condition some synchronization is required.
-        service.ServiceWeb port = service.getServiceWebPort();
-        return port.crearFactura(articulo, cliente, cantidad, iva);
-    }
+ 
 
 }

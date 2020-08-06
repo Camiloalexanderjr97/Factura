@@ -16,6 +16,14 @@
 
 <xs:element name="CrearFacturaResponse" type="tns:CrearFacturaResponse"/>
 
+<xs:element name="FacturaList" type="tns:FacturaList"/>
+
+<xs:element name="FacturaListResponse" type="tns:FacturaListResponse"/>
+
+<xs:element name="ModificarFactura" type="tns:ModificarFactura"/>
+
+<xs:element name="ModificarFacturaResponse" type="tns:ModificarFacturaResponse"/>
+
 <xs:element name="RegistrarArticulo" type="tns:RegistrarArticulo"/>
 
 <xs:element name="RegistrarArticuloResponse" type="tns:RegistrarArticuloResponse"/>
@@ -34,29 +42,7 @@
 <xs:sequence>
 <xs:element name="cedula" type="xs:string" minOccurs="0"/>
 <xs:element name="edad" type="xs:string" minOccurs="0"/>
-<xs:element name="factura" type="tns:factura" minOccurs="0"/>
 <xs:element name="nombre" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="factura">
-<xs:sequence>
-<xs:element name="articuloArticulo" type="tns:articulo" minOccurs="0"/>
-<xs:element name="clienteCliente" type="tns:cliente" minOccurs="0"/>
-<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
-<xs:element name="idfactura" type="xs:int" minOccurs="0"/>
-<xs:element name="iva" type="xs:int"/>
-<xs:element name="total" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="articulo">
-<xs:sequence>
-<xs:element name="cantidad" type="xs:int"/>
-<xs:element name="factura" type="tns:factura" minOccurs="0"/>
-<xs:element name="idArticulo" type="xs:int" minOccurs="0"/>
-<xs:element name="nombre" type="xs:string" minOccurs="0"/>
-<xs:element name="precio" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -65,6 +51,7 @@
 <xs:element name="Articulo" type="xs:string" minOccurs="0"/>
 <xs:element name="Cliente" type="xs:string" minOccurs="0"/>
 <xs:element name="Cantidad" type="xs:int"/>
+<xs:element name="Iva" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -81,6 +68,39 @@
 <xs:complexType name="ArticulosResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:articulo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="articulo">
+<xs:sequence>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="idArticulo" type="xs:int" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="FacturaList">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="FacturaListResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:factura" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="factura">
+<xs:sequence>
+<xs:element name="articuloArticulo" type="tns:articulo" minOccurs="0"/>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="clienteCliente" type="tns:cliente" minOccurs="0"/>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="idfactura" type="xs:int" minOccurs="0"/>
+<xs:element name="iva" type="xs:int"/>
+<xs:element name="precio" type="xs:int"/>
+<xs:element name="total" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -107,6 +127,18 @@
 </xs:complexType>
 
 <xs:complexType name="ClienteRegistroResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarFactura">
+<xs:sequence>
+<xs:element name="Factura" type="tns:factura" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarFacturaResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>

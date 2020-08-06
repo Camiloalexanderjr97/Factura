@@ -35,13 +35,13 @@
                         List<Articulo> lista = a.articulos();
                         for (Articulo arts : lista) {
                     %>
-                    <option style="width: 100px"><%=arts.getNombre()%>   </option>>
+                    <option ><%=arts.getNombre()%>   </option>>
                     <%}%>
                 </select>
 
                 <i class="fa fa-user"></i>
                 <label>Cliente</label>
-                
+
                 <select name="cliente" >
                     <%
                         ClienteList c = new ClienteList();
@@ -54,6 +54,7 @@
 
                 <i class="fa fa-user"></i>
                 <input name="cantidad" type="number" placeholder="Cantidad" />
+                <input name="iva" type="number" placeholder="Iva" />
 
                 <Button class="spinner">Registrar</button>
 

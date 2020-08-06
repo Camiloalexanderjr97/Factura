@@ -12,6 +12,18 @@
         <servlet-name>RegistrarArticulo</servlet-name>
         <servlet-class>Servlet.RegistrarArticulo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ModificarF</servlet-name>
+        <servlet-class>Servlet.ModificarF</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Actualizar</servlet-name>
+        <servlet-class>Servlet.Actualizar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActualizarF</servlet-name>
+        <servlet-class>Servlet.ActualizarF</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarCliente.do</servlet-name>
         <url-pattern>/RegistrarCliente</url-pattern>
@@ -23,6 +35,18 @@
     <servlet-mapping>
         <servlet-name>RegistrarArticulo</servlet-name>
         <url-pattern>/RegistrarArticulo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificarF</servlet-name>
+        <url-pattern>/ModificarF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Actualizar</servlet-name>
+        <url-pattern>/Actualizar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActualizarF</servlet-name>
+        <url-pattern>/ActualizarF</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
