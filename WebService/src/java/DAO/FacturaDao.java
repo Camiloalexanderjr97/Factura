@@ -97,17 +97,17 @@ public class FacturaDao {
                 art.setIdArticulo(rs.getInt(2));
 
                 a.setArticuloArticulo(art);
-                a.setCantidad(3);
+                a.setCantidad(rs.getInt(3));
                 a.setFecha(rs.getDate(4));
 
                 Cliente c = new Cliente();
                 c.setCedula(rs.getString(5));
 
                 a.setClienteCliente(c);
-
-                a.setIva(rs.getInt(6));
-                a.setTotal(rs.getInt(6));
-                a.setEstado(rs.getString(8));
+                a.setPrecio(rs.getInt(6));
+                a.setIva(rs.getInt(7));
+                a.setTotal(rs.getInt(8));
+                a.setEstado(rs.getString(9));
 
                 lista.add(a);
             }
@@ -192,6 +192,32 @@ public class FacturaDao {
             }
         }
 
-        return f.toString();
+        return msj;
+    }
+    
+    
+    public String EliminarFactura(String f) {
+        String msj = "";
+
+        try {
+          String estado="Desactivado";
+            String sql = "UPDATE factura SET Estado='" + estado + "' WHERE Id_factura='" + f + "'";
+            pps = con.Conexion().prepareStatement(sql);
+
+            pps.executeUpdate();
+            msj = "Factura Desactivada";
+          
+
+        } catch (Exception e) {
+            System.out.println("error" + e);
+        } finally {
+            try {
+                con.Desconectar();
+            } catch (Exception e) {
+
+            }
+        }
+
+        return msj;
     }
 }

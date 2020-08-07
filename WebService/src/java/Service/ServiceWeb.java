@@ -100,5 +100,10 @@ public class ServiceWeb {
     /**
      * Web service operation
      */
- 
+  @WebMethod(operationName = "EliminarFactura")
+    public String EliminarFactura(@WebParam(name = "Factura") String Factura) {
+        
+        //TODO write your implementation code here:
+        return f.EliminarFactura(Factura);
+    }
 }
