@@ -10,25 +10,29 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Crear Articulo</title>
-        <link rel="stylesheet" href="../CSS/styloCrear.css">
+        <link rel="stylesheet" href="../CSS/styloCrear_1.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
     </head>
     <body>
-     <div class="wrapper">  
-         <form action="../RegistrarArticulo" method="POST" class="login">
-    <p class="title">Registro de Articulos</p>
-    <input name="nombre" type="text" placeholder="Nombre" autofocus/>
-    <i class="fa fa-user"></i>
-    <input name="cantidad" type="number" placeholder="Cantidad" />
-    <input name="precio" type="number" placeholder="Precio" autofocus/>
-    
-    <Button class="spinner">Registrar</button>
+        <div class="wrapper">  
+            <form action="../RegistrarArticulo" method="POST" class="login">
+                <p class="title">Registro de Articulos</p>
+                <input name="nombre" type="text" placeholder="Nombre" autofocus/>
+                <i class="fa fa-user"></i>
+                <input name="cantidad" type="number" placeholder="Cantidad" />
+                <input name="precio" type="number" placeholder="Precio" autofocus/>
 
-      
-  </form>
-  <footer><a target="blank" href="http://boudra.me/">boudra.me</a></footer>
-  </p>
-</div>
-          <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-          <script src="../JS/action.js"></script>
+                <Button class="spinner">Registrar</button>
+
+                <div>
+                    <a type="button" href="../index.html"  style="width: 280px; height: 50px; color: #ffffff; font-size: 20px"  class="btn btn-primary">Atras</a>
+                </div>
+
+            </form>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="../JS/action.js"></script>
     </body>
 </html>

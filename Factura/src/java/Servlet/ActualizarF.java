@@ -76,6 +76,7 @@ public class ActualizarF extends HttpServlet {
             f.setPrecio(precioN);
             f.setIva(ivaN);
             modificarFactura(f);
+            response.sendRedirect("../JSP/Lista.jsp");
         } catch (Exception e) {
             System.out.println("error"+e);
         }

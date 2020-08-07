@@ -20,6 +20,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Modificar Factura</title>
         <link rel="stylesheet" href="../CSS/styloCrear_1.css">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
     </head>
     <body>
 
@@ -64,13 +66,17 @@
                 
                 <i class="fa fa-user"></i>
                 <input name="iva" type="number" placeholder="Iva" />
-                <input type="submit" value="Modificar">
+               
                 
+                 <Button class="spinner">Modificar</button>
+                 
+                 <div>
+                     <a type="button" href="../index.html"  style="width: 280px; height: 50px; color: #ffffff; font-size: 20px"  class="btn btn-primary">Atras</a>
+                 </div>
 
             </form>
         </div>
-    </p>
-</div>
+                            
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="../JS/action.js"></script>
 </body>

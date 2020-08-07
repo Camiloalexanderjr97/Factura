@@ -4,11 +4,17 @@
 <xsd:import namespace="http://Service/" schemaLocation="http://localhost:8080/WebService/ServiceWeb?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="ClienteRegistro">
-<part name="parameters" element="tns:ClienteRegistro"/>
+<message name="RegistrarArticulo">
+<part name="parameters" element="tns:RegistrarArticulo"/>
 </message>
-<message name="ClienteRegistroResponse">
-<part name="parameters" element="tns:ClienteRegistroResponse"/>
+<message name="RegistrarArticuloResponse">
+<part name="parameters" element="tns:RegistrarArticuloResponse"/>
+</message>
+<message name="EliminarFactura">
+<part name="parameters" element="tns:EliminarFactura"/>
+</message>
+<message name="EliminarFacturaResponse">
+<part name="parameters" element="tns:EliminarFacturaResponse"/>
 </message>
 <message name="FacturaList">
 <part name="parameters" element="tns:FacturaList"/>
@@ -16,11 +22,11 @@
 <message name="FacturaListResponse">
 <part name="parameters" element="tns:FacturaListResponse"/>
 </message>
-<message name="ModificarFactura">
-<part name="parameters" element="tns:ModificarFactura"/>
+<message name="CrearFactura">
+<part name="parameters" element="tns:CrearFactura"/>
 </message>
-<message name="ModificarFacturaResponse">
-<part name="parameters" element="tns:ModificarFacturaResponse"/>
+<message name="CrearFacturaResponse">
+<part name="parameters" element="tns:CrearFacturaResponse"/>
 </message>
 <message name="Articulos">
 <part name="parameters" element="tns:Articulos"/>
@@ -28,57 +34,70 @@
 <message name="ArticulosResponse">
 <part name="parameters" element="tns:ArticulosResponse"/>
 </message>
+<message name="ModificarFactura">
+<part name="parameters" element="tns:ModificarFactura"/>
+</message>
+<message name="ModificarFacturaResponse">
+<part name="parameters" element="tns:ModificarFacturaResponse"/>
+</message>
+<message name="ClienteRegistro">
+<part name="parameters" element="tns:ClienteRegistro"/>
+</message>
+<message name="ClienteRegistroResponse">
+<part name="parameters" element="tns:ClienteRegistroResponse"/>
+</message>
 <message name="Clientes">
 <part name="parameters" element="tns:Clientes"/>
 </message>
 <message name="ClientesResponse">
 <part name="parameters" element="tns:ClientesResponse"/>
 </message>
-<message name="CrearFactura">
-<part name="parameters" element="tns:CrearFactura"/>
-</message>
-<message name="CrearFacturaResponse">
-<part name="parameters" element="tns:CrearFacturaResponse"/>
-</message>
-<message name="RegistrarArticulo">
-<part name="parameters" element="tns:RegistrarArticulo"/>
-</message>
-<message name="RegistrarArticuloResponse">
-<part name="parameters" element="tns:RegistrarArticuloResponse"/>
-</message>
 <portType name="ServiceWeb">
-<operation name="ClienteRegistro">
-<input wsam:Action="http://Service/ServiceWeb/ClienteRegistroRequest" message="tns:ClienteRegistro"/>
-<output wsam:Action="http://Service/ServiceWeb/ClienteRegistroResponse" message="tns:ClienteRegistroResponse"/>
+<operation name="RegistrarArticulo">
+<input wsam:Action="http://Service/ServiceWeb/RegistrarArticuloRequest" message="tns:RegistrarArticulo"/>
+<output wsam:Action="http://Service/ServiceWeb/RegistrarArticuloResponse" message="tns:RegistrarArticuloResponse"/>
+</operation>
+<operation name="EliminarFactura">
+<input wsam:Action="http://Service/ServiceWeb/EliminarFacturaRequest" message="tns:EliminarFactura"/>
+<output wsam:Action="http://Service/ServiceWeb/EliminarFacturaResponse" message="tns:EliminarFacturaResponse"/>
 </operation>
 <operation name="FacturaList">
 <input wsam:Action="http://Service/ServiceWeb/FacturaListRequest" message="tns:FacturaList"/>
 <output wsam:Action="http://Service/ServiceWeb/FacturaListResponse" message="tns:FacturaListResponse"/>
 </operation>
-<operation name="ModificarFactura">
-<input wsam:Action="http://Service/ServiceWeb/ModificarFacturaRequest" message="tns:ModificarFactura"/>
-<output wsam:Action="http://Service/ServiceWeb/ModificarFacturaResponse" message="tns:ModificarFacturaResponse"/>
+<operation name="CrearFactura">
+<input wsam:Action="http://Service/ServiceWeb/CrearFacturaRequest" message="tns:CrearFactura"/>
+<output wsam:Action="http://Service/ServiceWeb/CrearFacturaResponse" message="tns:CrearFacturaResponse"/>
 </operation>
 <operation name="Articulos">
 <input wsam:Action="http://Service/ServiceWeb/ArticulosRequest" message="tns:Articulos"/>
 <output wsam:Action="http://Service/ServiceWeb/ArticulosResponse" message="tns:ArticulosResponse"/>
 </operation>
+<operation name="ModificarFactura">
+<input wsam:Action="http://Service/ServiceWeb/ModificarFacturaRequest" message="tns:ModificarFactura"/>
+<output wsam:Action="http://Service/ServiceWeb/ModificarFacturaResponse" message="tns:ModificarFacturaResponse"/>
+</operation>
+<operation name="ClienteRegistro">
+<input wsam:Action="http://Service/ServiceWeb/ClienteRegistroRequest" message="tns:ClienteRegistro"/>
+<output wsam:Action="http://Service/ServiceWeb/ClienteRegistroResponse" message="tns:ClienteRegistroResponse"/>
+</operation>
 <operation name="Clientes">
 <input wsam:Action="http://Service/ServiceWeb/ClientesRequest" message="tns:Clientes"/>
 <output wsam:Action="http://Service/ServiceWeb/ClientesResponse" message="tns:ClientesResponse"/>
 </operation>
-<operation name="CrearFactura">
-<input wsam:Action="http://Service/ServiceWeb/CrearFacturaRequest" message="tns:CrearFactura"/>
-<output wsam:Action="http://Service/ServiceWeb/CrearFacturaResponse" message="tns:CrearFacturaResponse"/>
-</operation>
-<operation name="RegistrarArticulo">
-<input wsam:Action="http://Service/ServiceWeb/RegistrarArticuloRequest" message="tns:RegistrarArticulo"/>
-<output wsam:Action="http://Service/ServiceWeb/RegistrarArticuloResponse" message="tns:RegistrarArticuloResponse"/>
-</operation>
 </portType>
 <binding name="ServiceWebPortBinding" type="tns:ServiceWeb">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="ClienteRegistro">
+<operation name="RegistrarArticulo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarFactura">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -96,7 +115,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="ModificarFactura">
+<operation name="CrearFactura">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -114,25 +133,25 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="ModificarFactura">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ClienteRegistro">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="Clientes">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="CrearFactura">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="RegistrarArticulo">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

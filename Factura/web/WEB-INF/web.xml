@@ -24,6 +24,10 @@
         <servlet-name>ActualizarF</servlet-name>
         <servlet-class>Servlet.ActualizarF</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminarF</servlet-name>
+        <servlet-class>Servlet.EliminarF</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarCliente.do</servlet-name>
         <url-pattern>/RegistrarCliente</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ActualizarF</servlet-name>
         <url-pattern>/ActualizarF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarF</servlet-name>
+        <url-pattern>/EliminarF</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

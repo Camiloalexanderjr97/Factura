@@ -36,9 +36,11 @@ public class RegistrarArticulo extends HttpServlet {
             int cantidad = Integer.parseInt(request.getParameter("cantidad"));
             int precio = Integer.parseInt(request.getParameter("precio"));
             
-            registrarArticulo(nombre, cantidad, precio);
+//            registrarArticulo(nombre, cantidad, precio);
+           response.sendRedirect("JSP/RegistrarArticulo.jsp");
            
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
