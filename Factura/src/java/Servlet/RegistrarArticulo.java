@@ -33,11 +33,13 @@ public class RegistrarArticulo extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
            
             String nombre = request.getParameter("nombre");
-            int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-            int precio = Integer.parseInt(request.getParameter("precio"));
+            String c=request.getParameter("cantidad");
+            int cantidad = Integer.parseInt(c);
+            String p=request.getParameter("precio");
+            int precio = Integer.parseInt(p);
             
-//            registrarArticulo(nombre, cantidad, precio);
-           response.sendRedirect("JSP/RegistrarArticulo.jsp");
+            registrarArticulo(nombre, cantidad, precio);
+              response.sendRedirect("index.html");
            
         }
         

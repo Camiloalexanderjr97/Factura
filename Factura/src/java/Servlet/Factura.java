@@ -45,7 +45,7 @@ public class Factura extends HttpServlet {
             int cantidad = Integer.parseInt(request.getParameter("cantidad"));
            
             crearFactura(articulo, nombre, cantidad, iva);
-
+              response.sendRedirect("JSP/Listar.jsp");
         }
     }
 

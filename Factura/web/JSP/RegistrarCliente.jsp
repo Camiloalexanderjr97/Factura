@@ -31,7 +31,6 @@
                  </div>
 
             </form>
-            <footer><a target="blank" href="http://boudra.me/">boudra.me</a></footer>
         </p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

@@ -8,6 +8,7 @@ package Servlet;
 import Modelo.ArticuloList;
 import Modelo.ClienteList;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,41 +45,39 @@ public class ActualizarF extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String id = request.getParameter("id");
-            
+
             String cedula = request.getParameter("cliente");
 
             String articulo = request.getParameter("articulo") + "";
 
             String cantidad = request.getParameter("cantidad");
-            
+
             String iva = request.getParameter("iva");
             String precio = request.getParameter("precio");
-            
+
             int cant = Integer.parseInt(cantidad);
             int i = Integer.parseInt(id);
             int ivaN = Integer.parseInt(iva);
             int precioN = Integer.parseInt(precio);
 
             Factura f = new Factura();
-            
+
             f.setIdfactura(i);
 
             c.setCedula(clte.buscar(cedula).getCedula());
             f.setClienteCliente(c);
-            
+
             art.setIdArticulo(a.buscar(articulo).getIdArticulo());
             f.setArticuloArticulo(art);
-            
+
             f.setCantidad(cant);
             f.setPrecio(precioN);
             f.setIva(ivaN);
             modificarFactura(f);
-            response.sendRedirect("../JSP/Lista.jsp");
-        } catch (Exception e) {
-            System.out.println("error"+e);
+           response.sendRedirect("JSP/Listar.jsp");
         }
     }
 

@@ -41,7 +41,9 @@ public class RegistrarCliente extends HttpServlet {
           String nombre = request.getParameter("nombre");
           String edad = request.getParameter("edad");
             clienteRegistro(cedula, nombre, edad);
+       response.sendRedirect("index.html");
         }
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

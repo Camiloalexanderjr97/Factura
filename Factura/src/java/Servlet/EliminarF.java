@@ -39,6 +39,7 @@ public class EliminarF extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
            String id = request.getParameter("id");
             eliminarFactura(id);
+            response.sendRedirect("JSP/Listar.jsp");
         }
     }
 
