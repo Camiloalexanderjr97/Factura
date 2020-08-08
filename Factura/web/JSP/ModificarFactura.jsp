@@ -60,7 +60,6 @@
 
                 <i class="fa fa-user"></i>
                 
-                <input name="fecha" type="date" placeholder="Fecha" /> 
                 <input name="cantidad" type="number" placeholder="Cantidad" />
                 <input name="precio" type="number" placeholder="Precio" />
                 
