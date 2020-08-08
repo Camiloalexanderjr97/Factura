@@ -13,8 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -41,7 +39,7 @@ public class ArticuloDao {
             pps.setInt(4, precio);
             pps.executeUpdate();
             msj = "Articulo Creado";
-            System.out.println(msj);
+          
 
         } catch (Exception ex) {
             System.out.println(ex);
@@ -70,12 +68,11 @@ public class ArticuloDao {
                 a.setCantidad(rs.getInt(3));
                 a.setPrecio(rs.getInt(4));
 
-                System.out.println("correcto");
                 return a;
             }
 
         } catch (SQLException ex) {
-            System.out.println("Error");
+            System.out.println("Error"+ ex);
         } finally {
             try {
                 con.Desconectar();
@@ -109,7 +106,6 @@ public class ArticuloDao {
 
             }
         }
-        System.out.println(lista);
         return lista;
     }
 

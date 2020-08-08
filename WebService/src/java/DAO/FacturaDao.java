@@ -71,7 +71,7 @@ public class FacturaDao {
             msj = "Factura Creada";
 
         } catch (Exception ex) {
-            System.out.println(ex.toString());
+            System.out.println("error" + ex);
         } finally {
             try {
                 con.Desconectar();
@@ -154,7 +154,7 @@ public class FacturaDao {
             }
 
         } catch (Exception ex) {
-            System.out.println("Error");
+            System.out.println("Error"+ex);
         } finally {
             try {
                 con.Desconectar();
@@ -194,19 +194,17 @@ public class FacturaDao {
 
         return msj;
     }
-    
-    
+
     public String EliminarFactura(String f) {
         String msj = "";
 
         try {
-          String estado="Desactivado";
+            String estado = "Desactivado";
             String sql = "UPDATE factura SET Estado='" + estado + "' WHERE Id_factura='" + f + "'";
             pps = con.Conexion().prepareStatement(sql);
 
             pps.executeUpdate();
             msj = "Factura Desactivada";
-          
 
         } catch (Exception e) {
             System.out.println("error" + e);

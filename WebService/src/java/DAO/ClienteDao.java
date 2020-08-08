@@ -13,8 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -39,10 +37,10 @@ public class ClienteDao {
             pps.setString(3, edad);
             pps.executeUpdate();
             msj = "Cliente Creado";
-            System.out.println(msj);
+         
 
         } catch (Exception ex) {
-            System.out.println(ex);
+            System.out.println("error"+ex);
         } finally {
             try {
                 con.Desconectar();
@@ -68,12 +66,11 @@ public class ClienteDao {
                 c.setNombre(rs.getString(2));
                 c.setEdad(rs.getString(3));
 
-                System.out.println("correcto");
                 return c;
             }
 
         } catch (SQLException ex) {
-            System.out.println("Error");
+            System.out.println("Error"+ex);
         } finally {
             try {
                 con.Desconectar();
